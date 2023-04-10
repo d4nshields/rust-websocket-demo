@@ -1,3 +1,3 @@
 # rust-websocket-demo
-Starting with a simple demo code, evolve it into a useful thing
+Evolve a demo of Rust WebSocket handling into a useful thing
 
