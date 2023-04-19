@@ -1,0 +1,35 @@
+// 
+
+@startuml
+
+package "Front End Layer" {
+  package "iOS App" {
+    [SwiftUI Render]
+  }
+  package "Angular App" {
+    [Angular Render]
+    [Angular Router]
+  }
+}
+
+package "AWS Rust Lambda" {
+  [Mobile Router]
+}
+
+package "Platform Layer" {
+  [Webservices] ..> [Database]
+
+  [Database]
+}
+
+[SwiftUI Render] --> [Mobile Router]
+[SwiftUI Render] <.. [Mobile Router]
+[Angular Render] --> [Angular Router]
+[Angular Render] <.. [Angular Router]
+[Angular Router] --> [Webservices]
+[Angular Router] <.. [Webservices]
+[Mobile Router] --> [Webservices]
+[Mobile Router] <.. [Webservices]
+[Database] <-- [Webservices]
+
+@enduml

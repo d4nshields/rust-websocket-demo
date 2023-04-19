@@ -1,0 +1,33 @@
+@startuml webservices
+
+!define RECTANGLE_COLOR 87CEFA
+!define SERVICE_COLOR FFD700
+!define COMPONENT_COLOR 32CD32
+
+package "Services" {
+    [Environment] #SERVICE_COLOR
+    [Configuration] #SERVICE_COLOR
+    [Webservices] #SERVICE_COLOR
+}
+
+package "Page Components" {
+    [LoginComponent] #COMPONENT_COLOR
+    [LobbyComponent] #COMPONENT_COLOR
+}
+
+package "System Components" {
+    [GameLaunchComponent] #COMPONENT_COLOR
+    [GeolocationComponent] #COMPONENT_COLOR
+}
+
+[Configuration] --> [Environment]
+[Webservices] --> [Configuration]
+
+[Webservices] --> [LoginComponent]
+
+[LoginComponent] --> [GeolocationComponent]
+[GameLaunchComponent] --> [GeolocationComponent]
+
+[LobbyComponent] --> [GameLaunchComponent]
+
+@enduml
